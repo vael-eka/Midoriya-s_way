@@ -11,3 +11,14 @@ class Solution(object):
     def two_sum(self, nums, target):
         # Hash map to store {number_value: index}
         seen = {}
+
+        # Enumerate creates a tuple of the value and its index
+        for index, num in enumerate(nums):
+            complement = target - num
+
+            # Check if the needed complemente is already in our dictionary
+            if complement in seen:
+                return [seen[complement], index]
+
+            # Save current number and its index
+            seen[num] = index
